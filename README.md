@@ -15,41 +15,16 @@ Here's how I set up my first **Windows Server 2025 Domain Controller (Desktop Ex
 
 Here's how I organized my **asaretech.net** domain:
 
-## 2. Create Security Groups 👥
-Right-click OU → New → Group
+## Part 2: Create OUs, Users & Groups
 
-| Group Name          | Scope  | Type     | OU           |
-|---------------------|--------|----------|--------------|
-| Sales Security      | Global | Security | New York     |
-| Accounting Security | Global | Security | Sydney       |
-| IT Security         | Global | Security | Atlanta      |
-| Marketing           | Global | Security | Frankfurt    |
+To create organizational units, I opened Server Manager > Tools > Active Directory Users and Computers, right-clicked the asaretech.net domain, and selected New > Organizational Unit. I first created four department OUs directly under the domain root: Sales, Accounting, IT, and Marketing.
 
-## 3. Create Users 👤
-Right-click OU → New → User  
-**→ Complete wizard → Check "User must change password at next logon" ✓**
+Next, I created two region OUs at the root level: Region A and Region B using the same right-click > New > Organizational Unit process.
 
-**Region A:**
-- **New York OU:** Mark Scott → Sales Security member
-- **Sydney OU:** Helly Eagan → Accounting Security member
+To reorganize the structure, I dragged the department OUs into their respective regions—New York and Sydney into Region A, Atlanta and Frankfurt into Region B. This was a simple drag-and-drop operation in the ADUC tree view.
 
-**Region B:**
-- **Atlanta OU:** ITAdmin → IT Security member
-- **Frankfurt OU:** (Marketing users ready)
+For user creation, I right-clicked the target OU (New York for Mark Scott, Sydney for Helly Eagan) > New > User, entered the first name, last name, and logon name, completed the wizard, and checked "User must change password at next logon" before finishing.
 
-## 4. Add Users to Groups ➕
-Right-click Group → Properties → Members → Add  
-OR Right-click User → Add to a group
+I then created security groups by right-clicking each city OU under the regions—New York > New > Group, named it "Sales" and selected Security group type > OK. Repeated this for Accounting (Sydney), IT (Atlanta), and Marketing (Frankfurt).
 
-- **Sales Security:** ✅ Mark Scott  
-- **Accounting Security:** ✅ Helly Eagan
-- **IT Security:** ✅ ITAdmin
-- **Marketing:** (users ready to assign)
-
-## 5. Verify Structure ✅
-View → Advanced Features ✓
-- Domain → Regions → OUs expand properly
-- Groups → Members tab populated
-- Users → Member Of tab shows groups
-
-**Lab ready**: Regional structure with users & groups assigned! 🚀
+Finally, to add users to their specific groups, I right-clicked the Sales group > Properties > Members tab > Add, searched for "Mark Scott" > OK. Did the same for the Accounting group > Properties > Members > Add "Helly Eagan" > OK.
