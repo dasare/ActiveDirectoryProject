@@ -4,8 +4,6 @@
 
 Here's how I set up my first **Windows Server 2025 Domain Controller (Desktop Experience)** for an AD lab:
 
-## Part 1: Windows Server 2025 on VirtualBox Setup
-
 Opened VirtualBox and created new VM named "dc" - picked Windows Server 2025 (64-bit), gave it 4GB RAM, used default disk settings.
 
 In Settings, set clipboard/drag-drop to bidirectional, bumped processors to 4 cores, left Network Adapter 1 as NAT for internet.
