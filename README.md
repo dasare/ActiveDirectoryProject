@@ -4,9 +4,17 @@
 
 Here's how I set up my first **Windows Server 2025 Domain Controller (Desktop Experience)** for an AD lab:
 
-🔄 **Started** by booting the Server 2025 ISO, selected **Windows Server 2025 Standard (Desktop Experience)** for the GUI version, and did a custom install that auto-sets up recovery partitions before a few restarts.
+## Part 1: Windows Server 2025 on VirtualBox Setup
 
-⚙️ **Housekeeping** with `sconfig`: **static IP** (use your DHCP address), **left DNS blank** 🔄 (DC promotion handles it), renamed to **DC01**, restarted, verified with `ipconfig /all`.
+Opened VirtualBox and created new VM named "dc" - picked Windows Server 2025 (64-bit), gave it 4GB RAM, used default disk settings.
+
+In Settings, set clipboard/drag-drop to bidirectional, bumped processors to 4 cores, left Network Adapter 1 as NAT for internet.
+
+Started VM, attached Server 2025 ISO, booted from it. Went through install: Next > Install now > Windows Server 2025 Data Center Evaluation (Desktop Experience) > Custom > full disk > let it restart a bunch of times.
+
+Set admin password on first login (Ctrl+Alt+Del via Input menu), then installed Guest Additions from Devices menu - ran the AMD64 exe, next-next-finish, shut down to reboot.
+
+After restart, opened Terminal as admin > sconfig for server config. Used ipconfig to grab current DHCP IP, set it static with same IP/subnet/gateway/DNS. Verified with ipconfig /all - DHCP off, static IP good.[file:15]
 
 📦 **Added** AD Domain Services + DNS roles via Server Manager, then **promoted** to create my forest (**asaretech.net**) 🌳. Ignored the DNS delegation warning ⚠️ (normal for first DC), set DSRM password, accepted defaults, waited for green checks ✅, and let it install/restart.
 
