@@ -1,6 +1,6 @@
 # ActiveDirectoryProject
 
-## Part 1: Windows Server 2025 Domain Controller Setup 🖥️ (My Lab Notes)
+## Part 1: Windows Server 2025 Domain Controller Setup 🖥️
 
 Here's how I set up my first **Windows Server 2025 Domain Controller (Desktop Experience)** for an AD lab:
 
@@ -11,11 +11,10 @@ Here's how I set up my first **Windows Server 2025 Domain Controller (Desktop Ex
 📦 **Added** AD Domain Services + DNS roles via Server Manager, then **promoted** to create my forest (**asaretech.net**) 🌳. Ignored the DNS delegation warning ⚠️ (normal for first DC), set DSRM password, accepted defaults, waited for green checks ✅, and let it install/restart.
 
 🔑 **Logged** back in as **ASARETECH\Administrator**—AD DS and DNS roles are running 🟢. Tools show **Active Directory Users & Computers** and **DNS Manager** ready. **First DC live!** 🚀
-# Part 2: Create OUs, Users & Groups 🏢
+
+## Part 2: Create OUs, Users & Groups 🏢
 
 Here's how I organized my **asaretech.net** domain:
-
-## Part 2: Create OUs, Users & Groups
 
 To create organizational units, I opened Server Manager > Tools > Active Directory Users and Computers, right-clicked the asaretech.net domain, and selected New > Organizational Unit. I first created four department OUs directly under the domain root: Sales, Accounting, IT, and Marketing.
 
